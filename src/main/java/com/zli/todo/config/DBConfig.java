@@ -17,6 +17,8 @@ public class DBConfig extends AbstractMongoConfiguration {
    @NotNull
    private String name;
 
+   private String host;
+
    @Override
    protected String getDatabaseName() {
       return this.name;
@@ -25,10 +27,14 @@ public class DBConfig extends AbstractMongoConfiguration {
    @Override
    public Mongo mongo()
       throws Exception {
-      return new MongoClient();
+      return new MongoClient(host);
    }
 
    public void setName(String name) {
       this.name = name;
+   }
+
+   public void setHost(String host) {
+      this.host = host;
    }
 }

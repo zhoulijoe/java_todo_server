@@ -30,7 +30,7 @@ public class InitialDataPopulator {
       }
 
       if (taskService.getTasks(adminUser.getId()).isEmpty()) {
-         List<Task> tasks = new ArrayList<>();
+         List<Task> tasks = new ArrayList<Task>();
          tasks.add(new Task(adminUser.getId(), "Buy milk"));
          tasks.add(new Task(adminUser.getId(), "Fix computer"));
 

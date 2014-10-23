@@ -1,4 +1,5 @@
 db:
   name: todo
+  host: todo-db
 authorization:
   tokenExpire: 86400
