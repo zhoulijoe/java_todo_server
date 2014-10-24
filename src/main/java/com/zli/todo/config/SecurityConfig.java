@@ -1,8 +1,8 @@
 package com.zli.todo.config;
 
+import com.zli.todo.resolver.JsonViewResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -18,8 +18,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.web.servlet.ViewResolver;
 
 @Configuration
+@EnableWebMvcSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
    @Configuration
@@ -56,10 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
    @Configuration
    @EnableAuthorizationServer
-   @ConfigurationProperties(prefix="authorization")
    public static class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-
-      private Integer tokenExpire;
 
       @Autowired
       @Qualifier("authenticationManagerBean")
@@ -72,7 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                            .secret("secret")
                            .authorizedGrantTypes("password", "refresh_token")
                            .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
-                           .accessTokenValiditySeconds(this.tokenExpire);
+                           .accessTokenValiditySeconds(86400);
       }
 
       @Override
@@ -81,9 +80,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          endpoints.authenticationManager(this.authenticationManager);
       }
 
-      public void setTokenExpire(Integer tokenExpire) {
-         this.tokenExpire = tokenExpire;
-      }
    }
 
    @Configuration

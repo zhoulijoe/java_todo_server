@@ -1,42 +1,32 @@
-buildscript {
-    repositories {
-        maven { url "http://repo.spring.io/release" }
-        mavenLocal()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.1.RELEASE")
-    }
-}
-
 apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    maven { url "http://repo.spring.io/release" }
 }
 
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-data-mongodb:1.1.1.RELEASE")
-    compile("org.springframework.boot:spring-boot-starter-web:1.1.1.RELEASE")
-    compile("org.springframework.data:spring-data-rest-webmvc:2.1.0.RELEASE")
-    compile("org.springframework.security:spring-security-web:3.2.4.RELEASE")
-    compile("org.springframework.security:spring-security-config:3.2.4.RELEASE")
-    compile("org.springframework.security.oauth:spring-security-oauth2:2.0.1.RELEASE")
-    compile("com.fasterxml.jackson.core:jackson-databind:2.4.0")
-    compile("org.yaml:snakeyaml:1.13")
-    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-    testCompile("junit:junit:4.11")
-}
-
-jar {
+war {
     baseName = 'todo-server'
     version =  '0.0.1'
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
+dependencies {
+    compile('org.springframework:spring-webmvc:4.1.1.RELEASE')
+    compile('org.springframework.data:spring-data-mongodb:1.6.0.RELEASE')
+    compile('org.springframework.data:spring-data-rest-webmvc:2.2.0.RELEASE')
+    compile('org.springframework.security:spring-security-web:3.2.5.RELEASE')
+    compile('org.springframework.security:spring-security-config:3.2.5.RELEASE')
+    compile('org.springframework.security.oauth:spring-security-oauth2:2.0.3.RELEASE')
+    compile('org.yaml:snakeyaml:1.14')
+    compile('org.slf4j:slf4j-api:1.7.7')
+
+    runtime('org.slf4j:slf4j-jdk14:1.7.7')
+    runtime('com.fasterxml.jackson.core:jackson-core:2.4.0')
+    runtime('com.fasterxml.jackson.core:jackson-databind:2.4.0')
+
+    providedCompile('javax.servlet:javax.servlet-api:3.0.1')
 }
