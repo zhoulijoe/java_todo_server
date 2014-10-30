@@ -10,8 +10,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories(basePackages = {"com.zli.todo.repository"})
 public class DBConfig extends AbstractMongoConfiguration {
 
-   private String host;
-
    @Override
    protected String getDatabaseName() {
       return "todo";
@@ -20,10 +18,6 @@ public class DBConfig extends AbstractMongoConfiguration {
    @Override
    public Mongo mongo()
       throws Exception {
-      return new MongoClient(host);
-   }
-
-   public void setHost(String host) {
-      this.host = host;
+      return new MongoClient("todo-db");
    }
 }
