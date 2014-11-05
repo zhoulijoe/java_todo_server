@@ -1,7 +1,8 @@
-package com.todo.viewController;
+package com.zli.todo.controller;
 
-import com.todo.model.Task;
+import com.zli.todo.model.Task;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -16,13 +17,14 @@ public class TaskController {
    public TaskController() {
       this.mockTasks = new ArrayList<Task>();
 
-      mockTasks.add(new Task(counter.incrementAndGet(), "Buy food"));
-      mockTasks.add(new Task(counter.incrementAndGet(), "Pay bill"));
-      mockTasks.add(new Task(counter.incrementAndGet(), "Set alarm"));
+      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "Buy food"));
+      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "Pay bill"));
+      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "Set alarm"));
    }
 
-   @RequestMapping("/tasks")
+   @RequestMapping(value = "/mocktasks", method = RequestMethod.GET)
    public List<Task> getTasks() {
       return this.mockTasks;
    }
+
 }

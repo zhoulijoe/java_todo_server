@@ -1,13 +1,27 @@
-package com.todo.model;
+package com.zli.todo.model;
 
 public class Task extends ModelBase {
+
    private String description;
    private boolean complete;
 
-   public Task(long id, String description) {
+   public Task() {
+      super();
+   }
+
+   public Task(String id, String description) {
       super(id);
       this.description = description;
       this.complete = false;
+   }
+
+   @Override
+   public String toString() {
+      final StringBuffer sb = new StringBuffer("Task{");
+      sb.append("description='").append(description).append('\'');
+      sb.append(", complete=").append(complete);
+      sb.append('}');
+      return sb.toString();
    }
 
    public String getDescription() {
