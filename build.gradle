@@ -1,15 +1,28 @@
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'idea'
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.0.RELEASE")
+    }
+}
 
-mainClassName = 'hello.HelloWorld'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    maven { url "http://repo.spring.io/release" }
 }
 
 dependencies {
-    compile "joda-time:joda-time:2.2"
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    testCompile("junit:junit")
 }
 
 jar {
