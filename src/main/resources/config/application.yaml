@@ -1,2 +1,4 @@
-greeting:
-    name: Faye
+db:
+  name: todo
+authorization:
+  tokenExpire: 86400

@@ -1,6 +1,9 @@
 package com.zli.todo.model;
 
-public class Task extends ModelBase {
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Task extends UserOwned {
 
    private String description;
    private boolean complete;
@@ -9,8 +12,8 @@ public class Task extends ModelBase {
       super();
    }
 
-   public Task(String id, String description) {
-      super(id);
+   public Task(String id, String userId, String description) {
+      super(id, userId);
       this.description = description;
       this.complete = false;
    }
@@ -39,4 +42,5 @@ public class Task extends ModelBase {
    public void setComplete(boolean complete) {
       this.complete = complete;
    }
+
 }

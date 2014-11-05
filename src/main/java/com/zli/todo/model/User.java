@@ -2,10 +2,12 @@ package com.zli.todo.model;
 
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class User extends ModelBase {
 
-   @Indexed(unique=true, direction=IndexDirection.DESCENDING, dropDups=true)
+   @Indexed(unique=true, dropDups=true)
    private String username;
 
    private String password;

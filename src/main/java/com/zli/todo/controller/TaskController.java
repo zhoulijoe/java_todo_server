@@ -17,9 +17,9 @@ public class TaskController {
    public TaskController() {
       this.mockTasks = new ArrayList<Task>();
 
-      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "Buy food"));
-      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "Pay bill"));
-      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "Set alarm"));
+      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "1", "Buy food"));
+      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "1", "Pay bill"));
+      mockTasks.add(new Task(String.valueOf(counter.incrementAndGet()), "1", "Set alarm"));
    }
 
    @RequestMapping(value = "/mocktasks", method = RequestMethod.GET)
