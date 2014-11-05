@@ -12,6 +12,11 @@ public class Task extends UserOwned {
       super();
    }
 
+   public Task(String userId, String description) {
+      super(userId);
+      this.description = description;
+   }
+
    public Task(String id, String userId, String description) {
       super(id, userId);
       this.description = description;

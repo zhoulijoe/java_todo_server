@@ -8,6 +8,10 @@ public class UserOwned extends ModelBase {
       super();
    }
 
+   public UserOwned(String userId) {
+      this.userId = userId;
+   }
+
    public UserOwned(String id, String userId) {
       super(id);
       this.userId = userId;

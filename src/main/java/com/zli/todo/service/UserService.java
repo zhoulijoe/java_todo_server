@@ -5,10 +5,14 @@ import com.zli.todo.repository.UserRepository;
 
 public class UserService {
 
-   private UserRepository userRepository;
+   private final UserRepository userRepository;
 
    public UserService(UserRepository userRepository) {
       this.userRepository = userRepository;
+   }
+
+   public User getUser(String username) {
+      return userRepository.findByUsername(username);
    }
 
    public boolean add(User user) {
