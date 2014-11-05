@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,6 +21,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 
 @Configuration
 public class SecurityConfig {
+
+   @Autowired
+   private Environment env;
 
    @Configuration
    @Order(10)
@@ -58,6 +62,9 @@ public class SecurityConfig {
    public static class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
       @Autowired
+      private Environment env;
+
+      @Autowired
       @Qualifier("authenticationManagerBean")
       private AuthenticationManager authenticationManager;
 
@@ -68,7 +75,7 @@ public class SecurityConfig {
                            .secret("secret")
                            .authorizedGrantTypes("password", "refresh_token")
                            .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
-                           .accessTokenValiditySeconds(86400);
+                           .accessTokenValiditySeconds(Integer.valueOf(env.getProperty("authorization.tokenExpire")));
       }
 
       @Override
