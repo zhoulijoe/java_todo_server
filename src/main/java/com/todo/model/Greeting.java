@@ -1,16 +1,11 @@
-package hello;
+package com.todo.model;
 
-public class Greeting {
-   private final long id;
+public class Greeting extends ModelBase {
    private final String content;
 
    public Greeting(long id, String content) {
-      this.id = id;
+      super(id);
       this.content = content;
-   }
-
-   public long getId() {
-      return id;
    }
 
    public String getContent() {
