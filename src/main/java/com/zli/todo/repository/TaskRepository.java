@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface TaskRepository extends UserOwnedRepository<Task, String> {
 
-   public List<Task> findByComplete(@Param("complete") boolean complete);
+   public List<Task> findByComplete(boolean complete);
 }

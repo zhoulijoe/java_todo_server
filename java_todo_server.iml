@@ -63,7 +63,6 @@
     <orderEntry type="library" exported="" name="Gradle: spring-security-core-3.2.5.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-tx-4.0.7.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-hateoas-0.16.0.RELEASE" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: spring-data-commons-1.9.0.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: evo-inflector-1.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: jackson-core-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: jackson-coreutils-1.6" level="project" />
@@ -71,9 +70,10 @@
     <orderEntry type="library" exported="" name="Gradle: msg-simple-1.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: guava-16.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: btf-1.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: spring-data-mongodb-1.6.0.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: mongo-java-driver-2.12.3" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: slf4j-jdk14-1.7.7" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: spring-data-mongodb-1.6.1.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: spring-data-commons-1.9.1.RELEASE" level="project" />
   </component>
 </module>
 

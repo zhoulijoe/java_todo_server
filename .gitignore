@@ -9,3 +9,4 @@ out/
 # Intellij
 workspace.xml
 artifacts
+.idea/libraries

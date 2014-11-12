@@ -11,5 +11,7 @@ import java.util.List;
 @NoRepositoryBean
 public interface UserOwnedRepository<T extends UserOwned, ID extends Serializable> extends MongoRepository<T, ID> {
 
-   public List<T> findByUserId(@Param("userId") String userId);
+   public List<T> findByUserId(String userId);
+
+   public T findByIdAndUserId(ID id, String userId);
 }
