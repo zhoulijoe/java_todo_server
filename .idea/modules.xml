@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ansible_todo_deploy/ansible_todo_deploy.iml" filepath="$PROJECT_DIR$/../ansible_todo_deploy/ansible_todo_deploy.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_todo_server.iml" filepath="$PROJECT_DIR$/java_todo_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../python_todo_api_test/python_todo_api_test.iml" filepath="$PROJECT_DIR$/../python_todo_api_test/python_todo_api_test.iml" />
     </modules>
   </component>
 </project>
-
